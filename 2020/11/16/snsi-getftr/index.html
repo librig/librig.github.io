@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.csulb.edu/sites/default/files/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;librig.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Muse&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="The new technology permits us to do exciting things with tracking software. Wave of the future, Dude. 100% electronicHave you heard? There’s a war on. The target? IP-based, proxy-enabled, authenticate">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WHOIS behind SNSI &amp; GetFTR?">
+<meta property="og:url" content="https://librig.github.io/2020/11/16/snsi-getftr/index.html">
+<meta property="og:site_name" content="Motley Marginalia">
+<meta property="og:description" content="The new technology permits us to do exciting things with tracking software. Wave of the future, Dude. 100% electronicHave you heard? There’s a war on. The target? IP-based, proxy-enabled, authenticate">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-16T23:51:26.000Z">
+<meta property="article:modified_time" content="2022-02-09T20:29:38.000Z">
+<meta property="article:author" content="Gabriel J. Gardner">
+<meta property="article:tag" content="Sci-Hub">
+<meta property="article:tag" content="authentication">
+<meta property="article:tag" content="scholcom">
+<meta property="article:tag" content="GetFTR">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://librig.github.io/2020/11/16/snsi-getftr/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;librig.github.io&#x2F;2020&#x2F;11&#x2F;16&#x2F;snsi-getftr&#x2F;&quot;,&quot;path&quot;:&quot;2020&#x2F;11&#x2F;16&#x2F;snsi-getftr&#x2F;&quot;,&quot;title&quot;:&quot;WHOIS behind SNSI &amp; GetFTR?&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>WHOIS behind SNSI & GetFTR? | Motley Marginalia</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Motley Marginalia</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">A Digital Scratchpad by Gabriel J. Gardner</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-new-technology-permits-us-to-do-exciting-things-with-tracking-software-Wave-of-the-future-Dude-100-electronic"><span class="nav-number">1.</span> <span class="nav-text">The new technology permits us to do exciting things with tracking software. Wave of the future, Dude. 100% electronic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#They%E2%80%99re-gonna-kill-that-poor-proxy-server"><span class="nav-number">2.</span> <span class="nav-text">They’re gonna kill that poor proxy server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#And-a-lotta-strands-of-GetFTR-to-keep-in-my-head-man"><span class="nav-number">3.</span> <span class="nav-text">And a lotta strands of GetFTR to keep in my head, man</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#If-the-plan-gets-too-complex-something-always-goes-wrong-O%E2%80%99Reilly-Safari"><span class="nav-number">3.1.</span> <span class="nav-text">If the plan gets too complex something always goes wrong: O’Reilly &#x2F; Safari</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#If-the-plan-gets-too-complex-something-always-goes-wrong-Fitch-Solutions"><span class="nav-number">3.2.</span> <span class="nav-text">If the plan gets too complex something always goes wrong: Fitch Solutions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#But-fighting-alone-is-very-different-from-fighting-together"><span class="nav-number">4.</span> <span class="nav-text">But fighting alone is very different from fighting together</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-want-a-fucking-lawyer-man"><span class="nav-number">4.1.</span> <span class="nav-text">I want a fucking lawyer, man</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#But-your-university%E2%80%93-they-run-stuff-they%E2%80%93"><span class="nav-number">4.2.</span> <span class="nav-text">But your university– they run stuff, they–</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Say-what-you-want-about-local-library-policies-dude-at-least-they%E2%80%99re-an-ethos"><span class="nav-number">4.3.</span> <span class="nav-text">Say what you want about local library policies dude, at least they’re an ethos</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Correction"><span class="nav-number">4.3.1.</span> <span class="nav-text">Correction</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WHOIS-Signatures"><span class="nav-number">5.</span> <span class="nav-text">WHOIS Signatures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SNSI"><span class="nav-number">5.1.</span> <span class="nav-text">SNSI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Whois-Record-last-updated-on-2020-11-16"><span class="nav-number">5.1.1.</span> <span class="nav-text">Whois Record ( last updated on 2020-11-16 )</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GetFTR"><span class="nav-number">5.2.</span> <span class="nav-text">GetFTR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Whois-Record-last-updated-on-2020-11-16-1"><span class="nav-number">5.2.1.</span> <span class="nav-text">Whois Record ( last updated on 2020-11-16 )</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-WHOIS-Lookups"><span class="nav-number">5.3.</span> <span class="nav-text">Other WHOIS Lookups</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Gabriel J. Gardner</p>
+  <div class="site-description" itemprop="description">Brief notes on libraries, technology, social science, and their respective intersections.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://librig.github.io/2020/11/16/snsi-getftr/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gabriel J. Gardner">
+      <meta itemprop="description" content="Brief notes on libraries, technology, social science, and their respective intersections.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Motley Marginalia">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WHOIS behind SNSI & GetFTR?
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-11-16 15:51:26" itemprop="dateCreated datePublished" datetime="2020-11-16T15:51:26-08:00">2020-11-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-02-09 12:29:38" itemprop="dateModified" datetime="2022-02-09T12:29:38-08:00">2022-02-09</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Commentary/" itemprop="url" rel="index"><span itemprop="name">Commentary</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>17k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>15 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="The-new-technology-permits-us-to-do-exciting-things-with-tracking-software-Wave-of-the-future-Dude-100-electronic"><a href="#The-new-technology-permits-us-to-do-exciting-things-with-tracking-software-Wave-of-the-future-Dude-100-electronic" class="headerlink" title="The new technology permits us to do exciting things with tracking software. Wave of the future, Dude. 100% electronic"></a>The new technology permits us to do exciting things with tracking software. Wave of the future, Dude. 100% electronic</h2><p>Have you heard? There’s a war on. The target? <a target="_blank" rel="noopener" href="https://scholarlykitchen.sspnet.org/2018/01/16/what-will-you-do-when-they-come-for-your-proxy-server-ra21/">IP-based, proxy-enabled</a>, authenticated access to the commercially-owned scholarly literature. The combatants? The largest and most powerful scholarly publishers vs. the librarians and our user base.</p>
+<p>As reported by <a target="_blank" rel="noopener" href="https://www.timeshighereducation.com/news/sci-hub-security-risk-claims-irk-open-access-advocates">Times Higher Education</a> and <a target="_blank" rel="noopener" href="https://www.codastory.com/authoritarian-tech/spyware-in-libraries/">Coda</a>, The Scholarly Networks Security Initiative (SNSI) sponsored a webinar in which Corey Roach, CISO for University of Utah, floated the idea of installing a plug-in to library proxy servers, or a subsidized low-cost proxy, for additional data collection. <a target="_blank" rel="noopener" href="https://attheu.utah.edu/university-statements/statement-from-ciso-corey-roach/">(To be clear he did not advocate for sharing this information with publishers, only that it be collected and retained by libraries for user behavior analysis.)</a> Examples of the data collected in library logs (as distinguished from publisher logs) via the proposal are:</p>
+<ul>
+<li>timestamps</li>
+<li>extensive browser information</li>
+<li>username</li>
+<li>account Information</li>
+<li>customer IP</li>
+<li>URLs requested</li>
+<li>2-factor device information</li>
+<li>geographic Location</li>
+<li>user behavior</li>
+<li>biometric data</li>
+<li>threat correlation</li>
+</ul>
+<p>I question whether such rich personally identifiably information (PII) is required to prevent illicit account access. If it is collected at all, there are more than enough data points here (obviously excluding username and account information) to deanonymize individuals and reveal exactly what they looked at and when so it should not be kept on hand too long for later analysis.</p>
+<p>Another related, though separate endeavor is GetFTR which aims to bypass proxies (and thereby potential library oversight of use) entirely. There is <em>soo</em> much which could be written about both these efforts and this post only scratches the surface of some of the complex issues and relationships affect by them.</p>
+<p>The first thing I was curious about was, who is bankrolling these efforts? They list the backers on their websites but I always find it interesting as to who is willing to fund the coders and infrastructure. I looked up both GetFTR and SNSI in the <a target="_blank" rel="noopener" href="https://apps.irs.gov/app/eos/">IRS Tax Exempt database</a> as well as the <a target="_blank" rel="noopener" href="https://e-justice.europa.eu/content_find_a_company-489-en.do">EU Find a Company</a> portal and did not find any results. So I decided to do a little more digging matching WHOIS data in the hopes that something might pop out, nothing interesting came of this so I put it at the very bottom.</p>
+<h2 id="They’re-gonna-kill-that-poor-proxy-server"><a href="#They’re-gonna-kill-that-poor-proxy-server" class="headerlink" title="They’re gonna kill that poor proxy server"></a>They’re gonna kill that poor proxy server</h2><p>A simple matrix can help visualize the main players behind the efforts to ‘improve’ authentication and security.</p>
+<table title="Two by two matrix displaying participants in both SNSI and GetFTR">
+<thead>
+  <tr>
+    <th colspan="2" rowspan="2"></th>
+    <th colspan="2">Part of SNSI</th>
+  </tr>
+  <tr>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <th rowspan="2">Part of GetFTR</th>
+    <td>Yes</td>
+    <td>American Chemical Society Publications (ACS)<br>Elsevier<br>Springer Nature<br>Taylor &amp; Francis<br>Wiley</td>
+    <td>Digital Science<br>Karger<br>Mendeley<br>Researcher (Blenheim Chalcot)<br>Silverchair<br>Third Iron</td>
+  </tr>
+  <tr>
+    <td>No</td>
+    <td>American Institute of Physics (AIP)<br>American Medical Association (AMA)<br>American Physical Society (APS) <br>American Society of Mechanical Engineers (ASME)<br>Brill<br>Cambridge University Press (CUP)<br>Institute of Electrical and Electronics Engineers (IEEE)<br>Institute of Physics (IOP)<br>International Association of Scientific, Technical and Medical Publishers (STM)<br>International Water Association Publishing (IWA)<br>Macmillan Learning<br>The Optical Society (OSA)<br>Thieme</td>
+    <td>Any/all other publishers and supporting firms.</td>
+  </tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="4">Accurate as of 2020-11-16.</td>
+</tr>
+</tfoot>
+</table>
+
+<p>It should come as no surprise that Elsevier, Springer Nature, ACS, and Wiley - which <a target="_blank" rel="noopener" href="http://hdl.handle.net/10760/30981">previous research has shown</a> are the publishers producing the most research downloaded in the USA from Sci-Hub - are supporting both efforts. Taylor &amp; Francis presumably feels sufficiently threatened such that they are along for the ride.</p>
+<h2 id="And-a-lotta-strands-of-GetFTR-to-keep-in-my-head-man"><a href="#And-a-lotta-strands-of-GetFTR-to-keep-in-my-head-man" class="headerlink" title="And a lotta strands of GetFTR to keep in my head, man"></a>And a lotta strands of GetFTR to keep in my head, man</h2><p>I think it is important to conceptually separate GetFTR from the obviously problematic snooping proposed by SNSI. It would be theoretically possible for GetFTR to dramatically improve the user experience while not resulting in additional data collection about users.</p>
+<p>But… as Philipp Zumstein pointed out on Twitter, <a target="_blank" rel="noopener" href="https://twitter.com/zuphilip/status/1202350585602879490">there are already some ways to improve the linking “problems” and user experience that GetFTR is working on. The fact that they are instead building something new gives them opportunities to control and collect data on usage patterns and users.</a></p>
+<p>Given the corporate players involved here, I am not optimistic. However, I can also see large gains in usability if GetFTR works as advertised. In an ideal world, the usability/privacy tradeoff would be minimal; but as we are reminded on a daily basis, Dr. Pangloss was not a reliable guide.<br>For now, I have “registered my interest” with the group and am waiting to see how things are fleshed out.</p>
+<h3 id="If-the-plan-gets-too-complex-something-always-goes-wrong-O’Reilly-Safari"><a href="#If-the-plan-gets-too-complex-something-always-goes-wrong-O’Reilly-Safari" class="headerlink" title="If the plan gets too complex something always goes wrong: O’Reilly / Safari"></a>If the plan gets too complex something always goes wrong: O’Reilly / Safari</h3><p>O’Reilly a few years ago introduced a new type of authentication based on user email and they tried to default to it as part of a platform migration. We informed them that we wanted to continue using EZproxy, which they continue to support but have made it <em>very</em> cumbersome. As it currently stands, our users are presented with a different login experience depending upon how they enter the platform. While O’Reilly representatives have not been unresponsive, they clearly want users to authenticate with their “patron validation” method which collects user emails, rather than the shared-secret/proxy which is technically supported but only triggered when users enter from our alphabetical database list.</p>
+<h3 id="If-the-plan-gets-too-complex-something-always-goes-wrong-Fitch-Solutions"><a href="#If-the-plan-gets-too-complex-something-always-goes-wrong-Fitch-Solutions" class="headerlink" title="If the plan gets too complex something always goes wrong: Fitch Solutions"></a>If the plan gets too complex something always goes wrong: Fitch Solutions</h3><p>This provider ended support for proxy access. However, we achieved a slight simplification of the login experience for users that still satisfied our policy obligations through a back and forth conversation about the user variables we as IdP would release to the vendor. It was not a pleasant experience but a tolerable one. If vendors recognize and work with university SSO systems but do not require PII, improvements to user workflow and access are possible.  <strong>To be clear, what O’Reilly and Fitch have done by moving away from IP access is not GetFTR, which is still in pilot phase.</strong></p>
+<h2 id="But-fighting-alone-is-very-different-from-fighting-together"><a href="#But-fighting-alone-is-very-different-from-fighting-together" class="headerlink" title="But fighting alone is very different from fighting together"></a>But fighting alone is very different from fighting together</h2><p>How might librarians push back against (likely) excessive data collection by SNSI or GetFTR-using platforms? I can think of three tools at our disposal, though the discussion below is not meant to be exhaustive. I cover them in order of their possible strength/severity, in actuality the textual support they provide for pushback against vendors will vary.</p>
+<h3 id="I-want-a-fucking-lawyer-man"><a href="#I-want-a-fucking-lawyer-man" class="headerlink" title="I want a fucking lawyer, man"></a>I want a fucking lawyer, man</h3><p>Might State laws might have any clauses that could resist a publisher data grab? In California there are two relevant sections which covers library privacy GOV § 6267 and GOV § 6254 (j). GOV § 6254 (j) is no help as it specifically refers to “records kept for the purpose of identifying the borrower of items”, which is not the case with authentication data as in most cases it is not being used to ‘borrow’ anything. <a target="_blank" rel="noopener" href="https://codes.findlaw.com/ca/government-code/gov-sect-6267.html">GOV § 6267</a> however could be interpreted in interesting ways. I reproduce the relevant clauses here with my own emphasis.</p>
+<blockquote>
+<p>All patron use records of any library which is in whole or in part supported by public funds shall remain confidential and shall not be disclosed by a public agency, or private actor that maintains or stores patron use records on behalf of a public agency, to any person, local agency, or state agency except as follows:</p>
+<p>(a) By a person acting within the scope of his or her duties within the administration of the library.</p>
+<p>(b) By a person authorized, in writing, by the individual to whom the records pertain, to inspect the records.</p>
+<p>(c) By order of the appropriate superior court.</p>
+<p>As used in this section, the term “* * * patron use records” includes the following:</p>
+<p>(1) Any written or electronic record, that is used to identify the patron, including, <em>but not limited to</em>, a patron’s name, address, telephone number, or e-mail address, that <em>a library patron provides</em> in order to become eligible to borrow <em>or use</em> books and other materials.</p>
+<p>(2) Any written record or electronic transaction that identifies a patron’s borrowing information <em>or use of library information resources, including, but not limited to, database search records</em>, borrowing records, class records, and any other personally identifiable uses of library resources information requests, or inquiries.</p>
+<p>This section shall not apply to statistical reports of patron use nor to records of fines collected by the library.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/IANAL">I am not well versed in the law</a>, nor am I aware of any litigation involving § 6267 but it seems to me that a straightforward interpretation of this is that any personally identifiable information collected by vendors is subject to this law and thus must remain confidential. But <em>confidential</em> does not mean that vendors can’t use that PII for their own internal purposes, which is what some in the library community are worried about.</p>
+<p>Ultimately, I did not invoke either of these sections in negotiations with O’Reilly or Fitch as there was a more clear and less legalistic option, university policy, detailed below.</p>
+<p>The ALA has put together a page of the various state library legislative codes. <a target="_blank" rel="noopener" href="http://www.ala.org/advocacy/privacy/statelaws">http://www.ala.org/advocacy/privacy/statelaws</a> Since these don’t change often, I assume it is up to date (unlike some other ALA pages) should any readers want to check how things might shake out in a non-California jurisdiction.</p>
+<p>Also, I have yet to take a deep dive into the newly effective <a target="_blank" rel="noopener" href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180AB375">California Consumer Privacy Act of 2018</a>, but perhaps that will be useful going forward. Unfortunately, most jurisdictions are not as proactive about privacy as California so they will have to avail themselves of the other tactics listed here.</p>
+<h3 id="But-your-university–-they-run-stuff-they–"><a href="#But-your-university–-they-run-stuff-they–" class="headerlink" title="But your university– they run stuff, they–"></a>But your university– they run stuff, they–</h3><p>CalState Long Beach, like virtually all universities - I should hope - has internal policies governing the release of information. Presently, the <a target="_blank" rel="noopener" href="https://www.csulb.edu/information-technology/information-security/information-classification-standard">Information Classification Standard</a> delineates three types of data: confidential, internal, and public.</p>
+<p><strong>Confidential</strong></p>
+<p>There is a subheading in this section for <strong>Library Patron Information</strong>. I include it here in full.</p>
+<blockquote>
+<p>Library database for faculty, staff, students and community borrowers which may contain:</p>
+<ul>
+<li>Home address</li>
+<li>Home phone</li>
+<li>Social Security Numbers</li>
+</ul>
+</blockquote>
+<p>Note the word <em>may</em>. That might lead us to think that this would be a clause that could be liberally interpreted in negotiations with vendors but unfortunately the items explicitly listed as Public (below) make it clear that this section is about shielding employees’ personal and home information, not any data they might generate in the course of their remunerated activities as employees.  </p>
+<p>As a creature of the state, a lot of institutional information (which vendors no doubt would like to have and incorporate into their models of user behavior) is, and should be public, such as:</p>
+<ul>
+<li>Name</li>
+<li>Email</li>
+<li>Title</li>
+<li>Department</li>
+<li>Etc.</li>
+</ul>
+<p><strong>Internal</strong> information is where things get interesting.  </p>
+<p>There are a number of demographic characteristics/variables in this category which firms would love to hoover up and feed into whatever models they run on data about their users. Users might voluntarily disclose this information, e.g. by uploading a photograph of themselves to a profile on a vendor platform site. But the policy says <em>this is information which must be protected</em>. The implication being that this information is not of the <strong>Public</strong> category and that the University (thus library) should not routinely disclose it. Importantly, there is a subheading in this section for <strong>Library Circulation Information</strong>.</p>
+<blockquote>
+<p>Information which links a library patron with a specific subject the patron has accessed or requested</p>
+</blockquote>
+<p>That was the (in my opinion) the crucial piece of documentation that I provided to the Fitch Solutions staff which helped us carry the day and minimize data exchange and harvesting.</p>
+<h3 id="Say-what-you-want-about-local-library-policies-dude-at-least-they’re-an-ethos"><a href="#Say-what-you-want-about-local-library-policies-dude-at-least-they’re-an-ethos" class="headerlink" title="Say what you want about local library policies dude, at least they’re an ethos"></a>Say what you want about local library policies dude, at least they’re an ethos</h3><p>At present, we don’t have any in-house policies specific to authentication. Though I am open to such a move, my feeling is that the stronger play here for us is to continue to use the University policies (and applicable CA laws) in order to push back against overcollection of user data by publishers. A local library-specific policy is surely better than nothing in the absence of such a university policy, but when faculty in need of a specific resource such as a future SNSI-GetFTR-enabled ACS Digital Library come knocking, my suspicion is that some libraries will yield to the demands and implement the publisher’s preferred authentication mechanism. We can’t all be <a target="_blank" rel="noopener" href="http://www.attemptingelegance.com/?p=1765">Jenica Rogers</a>.</p>
+<p>On can we? A coordinated effort on the part of libraries around the world to draft and enact clear in-house policies that reject SNSI-supported spyware (or anything similar) might just work. The ACS-RELX-SpringNature-T&amp;F-Wiley-leviathan does not conceal its views and aims; neither should we. They want to collect <a target="_blank" rel="noopener" href="https://pastebin.com/H7Vn8Q8V">“information about them as a student or an employee” and change contract language in order to “ensure attribute release compliance.”</a> They tremble at the threat that piracy poses and, as pointed out by Sam Popowich, are working to convince everyone that <a target="_blank" rel="noopener" href="https://twitter.com/redlibrarian/status/1327991138418978816">“security and vendor profits should trump user privacy.”</a> The stakes are high.</p>
+<h4 id="Correction"><a href="#Correction" class="headerlink" title="Correction"></a>Correction</h4><p>This post originally listed American Society of Clinical Oncology (ASCO) as a supporter of GetFTR. Angela Cochran, ASCO’s VP of Publishing, who served on the GetFTR advisory board has clarified this via correspondence with me. The ASCO is not a participating partner in GetFTR. I regret the error.</p>
+<hr>
+<h2 id="WHOIS-Signatures"><a href="#WHOIS-Signatures" class="headerlink" title="WHOIS Signatures"></a>WHOIS Signatures</h2><p>Here are the relevant WHOIS data for each site. Both use the privacy options their hosting providers offer to not reveal important information. In the end, comparison of WHOIS data did not reveal anything interesting.</p>
+<h3 id="SNSI"><a href="#SNSI" class="headerlink" title="SNSI"></a>SNSI</h3><p><strong>Domain Profile</strong><br>Registrant Org Domain Proxy Service. LCN.com Limited<br>Registrant Country gb<br>Registrar Register SPA<br>IANA ID: 168<br>URL: <a target="_blank" rel="noopener" href="http://we.register.it/">http://we.register.it/</a><br>Whois Server: whois.register.it<br>(p)  395520021555<br>Registrar Status clientDeleteProhibited, clientTransferProhibited, clientUpdateProhibited<br>Dates 245 days old<br>Created on 2020-03-16<br>Expires on 2021-03-16<br>Updated on 2020-09-23<br>Name Servers BRAD.NS.CLOUDFLARE.COM (has 18,590,729 domains)<br>PAM.NS.CLOUDFLARE.COM (has 18,590,729 domains)</p>
+<p>Tech Contact —<br>IP Address 104.26.12.10 - 73 other sites hosted on this server</p>
+<p>IP Location United States Of America - California - San Francisco - Cloudflare Inc.<br>ASN United States Of America AS13335 CLOUDFLARENET, US (registered Jul 14, 2010)<br>Domain Status Registered And Active Website<br>IP History 14 changes on 14 unique IP addresses over 15 years<br>Hosting History 9 changes on 6 unique name servers over 7 years   </p>
+<p><strong>Website</strong><br>Website Title   500 SSL negotiation failed:<br>Response Code 500</p>
+<h4 id="Whois-Record-last-updated-on-2020-11-16"><a href="#Whois-Record-last-updated-on-2020-11-16" class="headerlink" title="Whois Record ( last updated on 2020-11-16 )"></a>Whois Record ( last updated on 2020-11-16 )</h4><code>
+Domain Name: SNSI.INFO
+Registry Domain ID: D503300001183540550-LRMS
+Registrar WHOIS Server: whois.register.it
+Registrar URL: http://we.register.it/
+Updated Date: 2020-09-23T07:14:11Z
+Creation Date: 2020-03-16T12:23:58Z
+Registry Expiry Date: 2021-03-16T12:23:58Z
+Registrar Registration Expiration Date:
+Registrar: Register SPA
+Registrar IANA ID: 168
+Registrar Abuse Contact Email:
+Registrar Abuse Contact Phone: +39.5520021555
+Reseller:
+Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+Registrant Organization: Domain Proxy Service. LCN.com Limited
+Registrant State/Province: Worcestershire
+Registrant Country: GB
+Name Server: BRAD.NS.CLOUDFLARE.COM
+Name Server: PAM.NS.CLOUDFLARE.COM
+DNSSEC: unsigned
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+
+<p>The Registrar of Record identified in this output may have an RDDS service that can be queried<br>for additional information on how to contact the Registrant, Admin, or Tech contact of the<br>queried domain name.<br></code></p>
+<h3 id="GetFTR"><a href="#GetFTR" class="headerlink" title="GetFTR"></a>GetFTR</h3><p><strong>Domain Profile</strong><br>Registrant On behalf of getfulltextresearch.com owner<br>Registrant Org Whois Privacy Service<br>Registrant Country us<br>Registrar Amazon Registrar, Inc.<br>IANA ID: 468<br>URL: <a target="_blank" rel="noopener" href="https://registrar.amazon.com,http//registrar.amazon.com">https://registrar.amazon.com,http://registrar.amazon.com</a><br>Whois Server: whois.registrar.amazon.com<br>(p)  12067406200<br>Registrar Status ok, renewPeriod<br>Dates 446 days old<br>Created on 2019-08-28<br>Expires on 2021-08-28<br>Updated on 2020-07-24<br>Name Servers NS-1001.AWSDNS-61.NET (has 39,473 domains)<br>NS-1171.AWSDNS-18.ORG (has 35,686 domains)<br>NS-143.AWSDNS-17.COM (has 17,174 domains)<br>NS-1760.AWSDNS-28.CO.UK (has 304 domains)</p>
+<p>Tech Contact On behalf of getfulltextresearch.com technical contact</p>
+<address>Whois Privacy Service<br>
+P.O. Box 81226,<br>
+Seattle, WA, 98108-1226, us</address>
+(p)  12065771368
+IP Address 35.197.254.76 - 13 other sites hosted on this server
+
+<p>IP Location United Kingdom Of Great Britain And Northern Ireland - England - London - Google Llc<br>ASN United Kingdom Of Great Britain And Northern Ireland AS15169 GOOGLE, US (registered Mar 30, 2000)<br>Domain Status Registered And Active Website<br>IP History 1 change on 1 unique IP addresses over 1 years<br>Registrar History 1 registrar<br>Hosting History 2 changes on 3 unique name servers over 1 year   </p>
+<p><strong>Website</strong><br>Website Title   500 SSL negotiation failed:<br>Response Code 500</p>
+<h4 id="Whois-Record-last-updated-on-2020-11-16-1"><a href="#Whois-Record-last-updated-on-2020-11-16-1" class="headerlink" title="Whois Record ( last updated on 2020-11-16 )"></a>Whois Record ( last updated on 2020-11-16 )</h4><code>
+Domain Name: getfulltextresearch.com
+Registry Domain ID: 2427634873_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.registrar.amazon.com
+Registrar URL: https://registrar.amazon.com
+Updated Date: 2020-07-24T22:01:02.974Z
+Creation Date: 2019-08-28T12:53:20Z
+Registrar Registration Expiration Date: 2021-08-28T12:53:20Z
+Registrar: Amazon Registrar, Inc.
+Registrar IANA ID: 468
+Registrar Abuse Contact Email:
+Registrar Abuse Contact Phone: +1.2067406200
+Reseller:
+Domain Status: renewPeriod https://icann.org/epp#renewPeriod
+Domain Status: ok https://icann.org/epp#ok
+Registry Registrant ID:
+Registrant Name: On behalf of getfulltextresearch.com owner
+Registrant Organization: Whois Privacy Service
+Registrant Street: P.O. Box 81226
+Registrant City: Seattle
+Registrant State/Province: WA
+Registrant Postal Code: 98108-1226
+Registrant Country: US
+Registrant Phone: +1.2065771368
+Registrant Phone Ext:
+Registrant Fax:
+Registrant Fax Ext:
+Registrant Email: .whoisprivacyservice.org
+Registry Admin ID:
+Admin Name: On behalf of getfulltextresearch.com administrative contact
+Admin Organization: Whois Privacy Service
+Admin Street: P.O. Box 81226
+Admin City: Seattle
+Admin State/Province: WA
+Admin Postal Code: 98108-1226
+Admin Country: US
+Admin Phone: +1.2065771368
+Admin Phone Ext:
+Admin Fax:
+Admin Fax Ext:
+Admin Email: .whoisprivacyservice.org
+Registry Tech ID:
+Tech Name: On behalf of getfulltextresearch.com technical contact
+Tech Organization: Whois Privacy Service
+Tech Street: P.O. Box 81226
+Tech City: Seattle
+Tech State/Province: WA
+Tech Postal Code: 98108-1226
+Tech Country: US
+Tech Phone: +1.2065771368
+Tech Phone Ext:
+Tech Fax:
+Tech Fax Ext:
+Tech Email: .whoisprivacyservice.org
+Name Server: ns-1001.awsdns-61.net
+Name Server: ns-1171.awsdns-18.org
+Name Server: ns-143.awsdns-17.com
+Name Server: ns-1760.awsdns-28.co.uk
+DNSSEC: unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+
+<p>For more information on Whois status codes, please visit<br><a target="_blank" rel="noopener" href="https://www.icann.org/resources/pages/epp">https://www.icann.org/resources/pages/epp</a><br></code></p>
+<h3 id="Other-WHOIS-Lookups"><a href="#Other-WHOIS-Lookups" class="headerlink" title="Other WHOIS Lookups"></a>Other WHOIS Lookups</h3><p>Notably, the main corporate firm players themselves do not use privacy services for their domains.</p>
+<p><strong>Wiley</strong><br>WHOIS via <a target="_blank" rel="noopener" href="https://whois.domaintools.com/wiley.com">DomainTools.com</a>, <a target="_blank" rel="noopener" href="https://www.whois.com/whois/wiley.com">Whois.com</a><br><em>Registrar</em>: CSC CORPORATE DOMAINS, INC.<br><em>Registrant Organization</em>: John Wiley &amp; Sons, Inc</p>
+<p><strong>Taylor &amp; Francis</strong><br>WHOIS via <a target="_blank" rel="noopener" href="https://whois.domaintools.com/taylorandfrancis.com">DomainTools.com</a>, <a target="_blank" rel="noopener" href="https://www.whois.com/whois/taylorandfrancis.com">Whois.com</a><br><em>Registrar</em>: Safenames Ltd<br><em>Registrant Organisation</em>: Taylor and Francis</p>
+<p><strong>Springer Nature</strong><br>WHOIS via <a target="_blank" rel="noopener" href="https://whois.domaintools.com/springernature.com">DomainTools.com</a>, <a target="_blank" rel="noopener" href="https://www.whois.com/whois/springernature.com">Whois.com</a><br><em>Registrar</em>: Eurodns S.A.<br><em>Registrant Organization</em>: Springer Nature B.V.</p>
+<p><strong>Elsevier</strong><br>WHOIS via <a target="_blank" rel="noopener" href="https://whois.domaintools.com/elsevier.com">DomainTools.com</a>, <a target="_blank" rel="noopener" href="https://www.whois.com/whois/elsevier.com">Whois.com</a><br><em>Registrar</em>: Safenames Ltd<br><em>Registrant Organisation</em>: Elsevier B.V.</p>
+<p><strong>ACS</strong><br>WHOIS via <a target="_blank" rel="noopener" href="https://whois.domaintools.com/acs.org">DomainTools.com</a>, <a target="_blank" rel="noopener" href="https://www.whois.com/whois/acs.org">Whois.com</a><br><em>Registrar</em>: Network Solutions, LLC<br><em>Registrant Organization</em>: American Chemical Society</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Sci-Hub/" rel="tag"># Sci-Hub</a>
+              <a href="/tags/authentication/" rel="tag"># authentication</a>
+              <a href="/tags/scholcom/" rel="tag"># scholcom</a>
+              <a href="/tags/GetFTR/" rel="tag"># GetFTR</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/01/24/scil-works-2020/" rel="prev" title="SCIL Works 2020">
+                  <i class="fa fa-chevron-left"></i> SCIL Works 2020
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/01/cil2022/" rel="next" title="Computers in Libraries 2022">
+                  Computers in Libraries 2022 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gabriel J. Gardner</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">284k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">4:18</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
