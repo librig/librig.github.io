@@ -37,6 +37,7 @@ https://librig.github.io/tags/GetFTR/
 https://librig.github.io/tags/CSUlibraries/
 https://librig.github.io/tags/Hexo/
 https://librig.github.io/tags/NodeJS/
+https://librig.github.io/tags/Collection-Development/
 https://librig.github.io/categories/Travel-Report/
 https://librig.github.io/categories/Commentary/
 https://librig.github.io/categories/Meta/
