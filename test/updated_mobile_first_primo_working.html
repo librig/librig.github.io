@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-
 <html lang="en">
+<!--
+  This file is the CSULB Library Primo Search Widget.
+  It is designed for the Library homepage, the intended use is embedding via iframe. 
+  Please ensure that the form action matches the final action URL for all cases.
+    The form submits a search query to Primo VE.
+    The search form includes options for different scopes, each styled to be responsive and meet WCAG guidelines.
+  Author: Gabriel J. Gardner, with suggestions and inline comments provided by Google Gemini 2.5 Flash, for CSULB Library Web Group
+  Last Updated: 2025-10-02
+-->
 <head>
-<base target="_top"/>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<script type="text/javascript">
+  <base target="_top" />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <script type="text/javascript">
     /**
      * Submits the search form.
      * It constructs the query string for Primo by prepending "any,contains,"
      * and replacing commas in the user's input with spaces.
      */
     function searchPrimo() {
-      // Note: No change needed here, logic is sound.
       document.getElementById("primoQuery").value = "any,contains," + document.getElementById("query").value.replace(/[,]/g, " ");
       document.forms["searchForm"].submit();
     }
@@ -32,7 +39,7 @@
           document.getElementById("query-label").textContent = "Search databases and peer reviewed journals";
           break;
 
-        case "newspapers":
+        case "Newspapers":
           document.getElementById("searchForm").action = primoURL + "npsearch";
           document.getElementById("primoScope").value = "all";
           document.getElementById("query").title = "Search current and historical news";
@@ -72,12 +79,13 @@
           document.getElementById("query").setAttribute("aria-label", "Discover books, articles, videos, and more");
           document.getElementById("query-label").textContent = "Discover books, articles, videos, and more";
       }
+      // Update the hidden tab input to match the selected scope
       document.getElementById("primoTab").value = scope.value;
     }
   </script>
-<link href="https://fonts.googleapis.com/css?family=Lato:400,300,600,700|Sanchez" rel="stylesheet" type="text/css"/>
-<title>University Library OneSearch</title>
-<style type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,300,600,700|Sanchez" rel="stylesheet" type="text/css" />
+  <title>University Library OneSearch</title>
+  <style type="text/css">
     /* ---------------------------------------------------------------------- */
     /* BASE STYLES (MOBILE-FIRST) */
     /* ---------------------------------------------------------------------- */
@@ -214,19 +222,23 @@
         padding: 15px;
         height: 70px;
         margin: 15px auto;
-        display: flex; /* Ensure the form itself is a flex container */
+        display: flex;
+        /* Ensure the form itself is a flex container */
         align-items: stretch;
         flex-wrap: nowrap;
         gap: 10px;
       }
-      
+
       /* FIX: Apply display: flex to the fieldset to make its children align horizontally */
       .form-wrapper fieldset {
-          display: flex;
-          flex-grow: 1; /* Allow fieldset to take up horizontal space */
-          flex-wrap: nowrap; /* Prevent items inside the fieldset from wrapping */
-          align-items: stretch;
-          gap: 10px; /* Use gap for spacing between the form elements */
+        display: flex;
+        flex-grow: 1;
+        /* Allow fieldset to take up horizontal space */
+        flex-wrap: nowrap;
+        /* Prevent items inside the fieldset from wrapping */
+        align-items: stretch;
+        gap: 10px;
+        /* Use gap for spacing between the form elements */
       }
 
       /* Use Flexbox properties to control width instead of percentages */
@@ -236,19 +248,23 @@
         height: 40px;
         margin-bottom: 0;
         margin-right: 0;
-        width: auto; /* Allow flex to control width */
+        width: auto;
+        /* Allow flex to control width */
       }
 
       /* Styles the dropdown select element */
       .rm-select {
         padding: 12px 2px;
-        flex-shrink: 0; /* Prevent from shrinking */
-        min-width: max-content; /* Base size on content */
+        flex-shrink: 0;
+        /* Prevent from shrinking */
+        min-width: max-content;
+        /* Base size on content */
       }
 
       /* Floating label container */
       .floating-label-container {
-        flex-grow: 1; /* Allow to fill remaining space */
+        flex-grow: 1;
+        /* Allow to fill remaining space */
       }
 
       /* Input padding adjusted for the shorter container height */
@@ -261,8 +277,10 @@
         margin-right: 0;
         padding: 12px 2px;
         position: relative;
-        flex-shrink: 0; /* Prevent from shrinking */
-        min-width: max-content; /* Base size on content (i.e., 'Search') */
+        flex-shrink: 0;
+        /* Prevent from shrinking */
+        min-width: max-content;
+        /* Base size on content (i.e., 'Search') */
       }
 
       /* Restore the triangular pseudo-element for the submit button on desktop */
@@ -307,42 +325,47 @@
         opacity: 1;
       }
     }
-  
-@media (min-width: 641px) {
-  input.rm-submit {
-    width: 200px;
-  }
-}
-</style>
-<style>
-/* Removed redundant/conflicting flex styles */
-</style>
+
+    /* Additional media query to set a fixed width for the submit button on larger screens */
+    @media (min-width: 641px) {
+      input.rm-submit {
+        width: 200px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<form action="https://csu-lb.primo.exlibrisgroup.com/discovery/search" autocomplete="off" class="form-wrapper rm" enctype="application/x-www-form-urlencoded; charset=utf-8" id="searchForm" method="get" name="searchForm" onsubmit="searchPrimo()" role="search" target="_top">
-<fieldset style="border: none; padding: 0;">
-<legend style="display: none;">OneSearch</legend>
-<input id="primoQuery" name="query" type="hidden"/>
-<input id="primoTab" name="tab" type="hidden" value="Everything"/>
-<input id="primoScope" name="search_scope" type="hidden" value="NZ_IZ_CI"/>
-<input name="vid" type="hidden" value="01CALS_ULB:01CALS_ULB"/>
-<input name="lang" type="hidden" value="en_US"/>
-<input name="mode" type="hidden" value="simple"/>
-<label for="select-cat" style="display:none;">Select Category</label>
-<select aria-label="Select Category" class="rm-select" id="select-cat" onchange="primoScopeSwitch(this)" title="Select Category">
-<option id="Everything" value="Everything">Search Everything</option>
-<option id="CentralIndex" value="CentralIndex">Articles</option>
-<option id="newspapers" value="newspapers">Newspapers</option>
-<option id="LibraryCatalog" value="LibraryCatalog">Books &amp; Media (CSULB)</option>
-<option id="DiscoveryNetwork" value="DiscoveryNetwork">Books &amp; Media (all CSU)</option>
-<option id="CourseReserves" value="CourseReserves">Course Reserves (CSULB)</option>
-</select>
-<div class="floating-label-container">
-<input aria-label="What are you looking for?" class="rm-input" id="query" placeholder=" " title="Discover books, articles, videos, and more" type="text"/>
-<label for="query" id="query-label">Discover books, articles, videos, and more</label>
-</div>
-<input class="rm-submit" id="go" name="go" role="button" type="submit" value="Search"/>
-</fieldset>
-</form>
+  <!-- The search form's action URL and hidden input values are dynamically updated by the primoScopeSwitch function based on the selected search scope. -->
+  <form action="https://csu-lb.primo.exlibrisgroup.com/discovery/search" autocomplete="off" class="form-wrapper rm"
+    enctype="application/x-www-form-urlencoded; charset=utf-8" id="searchForm" method="get" name="searchForm"
+    onsubmit="searchPrimo()" role="search" target="_top">
+    <fieldset style="border: none; padding: 0;">
+      <legend style="display: none;">OneSearch</legend>
+      <input id="primoQuery" name="query" type="hidden" />
+      <input id="primoTab" name="tab" type="hidden" value="Everything" />
+      <input id="primoScope" name="search_scope" type="hidden" value="NZ_IZ_CI" />
+      <input name="vid" type="hidden" value="01CALS_ULB:01CALS_ULB" />
+      <input name="lang" type="hidden" value="en_US" />
+      <input name="mode" type="hidden" value="simple" />
+      <label for="select-cat" style="display:none;">Select Search Type</label>
+      <select aria-label="Select Search Type" class="rm-select" id="select-cat" onchange="primoScopeSwitch(this)"
+        title="Select Search Type">
+        <option id="Everything" value="Everything">Search Everything</option>
+        <option id="CentralIndex" value="CentralIndex">Articles</option>
+        <option id="Newspapers" value="Newspapers">Newspapers</option>
+        <option id="LibraryCatalog" value="LibraryCatalog">Books &amp; Media (CSULB)</option>
+        <option id="DiscoveryNetwork" value="DiscoveryNetwork">Books &amp; Media (all CSU)</option>
+        <option id="CourseReserves" value="CourseReserves">Course Reserves (CSULB)</option>
+      </select>
+      <div class="floating-label-container">
+        <input aria-label="What are you looking for?" class="rm-input" id="query" placeholder=" "
+          title="Discover books, articles, videos, and more" type="text" />
+        <label for="query" id="query-label">Discover books, articles, videos, and more</label>
+      </div>
+      <input class="rm-submit" id="go" name="go" role="button" type="submit" value="Search" />
+    </fieldset>
+  </form>
 </body>
+
 </html>
