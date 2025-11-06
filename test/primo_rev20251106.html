@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  This file is the CSULB Library Primo Search Widget.
+  It is designed for the Library homepage, the intended use is embedding via iframe. 
+  Please ensure that the form action matches the final action URL for all cases.
+    The form submits a search query to Primo VE.
+    The search form includes options for different scopes, each styled to be responsive and meet WCAG guidelines.
+  Author: Gabriel J. Gardner, with suggestions and inline comments provided by Google Gemini 2.5 Flash, for CSULB Library Web Group
+  Last Updated: 2025-11-06
+-->
+<head>
+  <base target="_top" />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <script type="text/javascript">
+    /**
+     * Submits the search form.
+     * It constructs the query string for Primo by prepending "any,contains,"
+     * and replacing commas in the user's input with spaces.
+     */
+    function searchPrimo() {
+      document.getElementById("primoQuery").value = "any,contains," + document.getElementById("query").value.replace(/[,]/g, " ");
+      document.forms["searchForm"].submit();
+    }
+    /**
+     * Changes form variables depending on the selected search scope from the dropdown.
+     * It updates the form's action URL, hidden input values, and the title attribute
+     * of the search input field to provide context.
+     */
+    function primoScopeSwitch(scope) {
+      var primoURL = "https://csu-lb.primo.exlibrisgroup.com/discovery/";
+      switch (scope.value) {
+        case "CentralIndex":
+          document.getElementById("searchForm").action = primoURL + "search";
+          document.getElementById("primoScope").value = "CentralIndex";
+          document.getElementById("query").title = "Search databases and journals";
+          document.getElementById("query").setAttribute("aria-label", "Search databases and journals");
+          document.getElementById("query-label").textContent = "Search databases and journals";
+          break;
+
+        case "Newspapers":
+          document.getElementById("searchForm").action = primoURL + "npsearch";
+          document.getElementById("primoScope").value = "all";
+          document.getElementById("query").title = "Search current and historical news";
+          document.getElementById("query").setAttribute("aria-label", "Search current and historical news");
+          document.getElementById("query-label").textContent = "Search current and historical news";
+          break;
+
+        case "LibraryCatalog":
+          document.getElementById("searchForm").action = primoURL + "search";
+          document.getElementById("primoScope").value = "MyInstitution";
+          document.getElementById("query").title = "Search items held by the library";
+          document.getElementById("query").setAttribute("aria-label", "Search items held by the library");
+          document.getElementById("query-label").textContent = "Search items held by the library";
+          break;
+
+        case "DiscoveryNetwork":
+          document.getElementById("searchForm").action = primoURL + "search";
+          document.getElementById("primoScope").value = "Network_and_Institution";
+          document.getElementById("query").title = "Search through all CSU libraries";
+          document.getElementById("query").setAttribute("aria-label", "Search through all CSU libraries");
+          document.getElementById("query-label").textContent = "Search through all CSU libraries";
+          break;
+
+        case "CourseReserves":
+          document.getElementById("searchForm").action = primoURL + "search";
+          document.getElementById("primoScope").value = "CourseReserves";
+          document.getElementById("query").title = "Search course reserves";
+          document.getElementById("query").setAttribute("aria-label", "Search course reserves");
+          document.getElementById("query-label").textContent = "Search course reserves";
+          break;
+
+        case "Everything":
+        default:
+          document.getElementById("searchForm").action = primoURL + "search";
+          document.getElementById("primoScope").value = "NZ_IZ_CI";
+          document.getElementById("query").title = "Search for books, articles, and media";
+          document.getElementById("query").setAttribute("aria-label", "Search for books, articles, and media");
+          document.getElementById("query-label").textContent = "Search for books, articles, and media";
+      }
+      // Update the hidden tab input to match the selected scope
+      document.getElementById("primoTab").value = scope.value;
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,300,600,700|Sanchez" rel="stylesheet" type="text/css" />
+  <title>University Library OneSearch</title>
+  <style type="text/css">
+    /* ---------------------------------------------------------------------- */
+    /* BASE STYLES (MOBILE-FIRST) */
+    /* ---------------------------------------------------------------------- */
+    body {
+      margin: 0;
+      font-family: 'Lato', Arial, sans-serif;
+      font-size: 16px;
+      /* Increased base font size for better mobile readability */
+      background-color: #f5f5f5;
+    }
+
+    /* Clearfix utility */
+    .rm:before,
+    .cf:after {
+      content: "";
+      display: table;
+    }
+
+    .rm:after {
+      clear: both;
+    }
+
+    .rm {
+      zoom: 1;
+    }
+
+    /* Styles the main container for the search form */
+    .form-wrapper {
+      width: 100%;
+      /* Full width on mobile */
+      padding: 10px;
+      /* Reduced padding for more screen space */
+      margin: 0 auto;
+      /* Removed fixed top/bottom margin */
+      background-color: #e4e1d9;
+      box-sizing: border-box;
+      /* Include padding in the element's total width and height */
+    }
+
+    /* Focus styles for all form inputs */
+    .form-wrapper input:focus,
+    .form-wrapper select:focus {
+      outline: 0;
+      background: #fff;
+      box-shadow: 0 0 2px rgba(0, 0, 0, .8) inset;
+    }
+
+    /* Input/Select/Button shared styles for a consistent height */
+    .rm-select,
+    .floating-label-container,
+    .rm-submit {
+      width: 100%;
+      /* Stacked full-width elements on mobile */
+      height: 48px;
+      /* Slightly taller for easy mobile tapping */
+      margin-bottom: 10px;
+      /* Spacing between stacked elements */
+      border: 0;
+      box-sizing: border-box;
+    }
+
+    /* Styles the dropdown select element */
+    .rm-select {
+      padding: 12px;
+      background: #fff;
+    }
+
+    /* Styles the submit button */
+    .rm-submit {
+      padding: 12px;
+      background: #f9a600;
+      color: #000;
+      font-weight: bold;
+      text-transform: uppercase;
+      /* Use caps for a bolder button look */
+    }
+
+    /* Hover styles for the submit button */
+    .rm-submit:hover {
+      background: #FCC75D;
+    }
+
+    /* Active and focus styles for the submit button */
+    .rm-submit:active,
+    .rm-submit:focus {
+      background: #FCC75D;
+    }
+
+    /* Remove the pseudo-element 'triangle' on mobile as it's complex and distracts from the full-width stacking. */
+    .rm-submit:before {
+      content: none;
+    }
+
+    /**
+     * Floating label specific styles for mobile
+     */
+    .floating-label-container {
+      position: relative;
+      background: #fff;
+    }
+
+    .floating-label-container input.rm-input {
+      padding: 20px 12px 4px;
+      /* Adjust padding to make space for floating label */
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: transparent;
+      box-sizing: border-box;
+    }
+
+    /* Always float the label on mobile for clarity (using the original media query logic as the default) */
+    .floating-label-container label {
+      position: absolute;
+      left: 12px;
+      top: 6px;
+      font-size: 12px;
+      font-weight: bold;
+      opacity: 1;
+      /* Always visible and floating on mobile */
+      pointer-events: none;
+      transition: all .2s ease-in-out;
+      color: #656565;
+    }
+
+    /* ---------------------------------------------------------------------- */
+    /* DESKTOP STYLES (MIN-WIDTH MEDIA QUERY) */
+    /* ---------------------------------------------------------------------- */
+    /* Use a common breakpoint, e.g., 641px, to switch to the horizontal layout */
+    @media screen and (min-width: 641px) {
+
+      .form-wrapper {
+        width: 95%;
+        padding: 15px;
+        height: 70px;
+        margin: 15px auto;
+        display: flex;
+        /* Ensure the form itself is a flex container */
+        align-items: stretch;
+        flex-wrap: nowrap;
+        gap: 10px;
+      }
+
+      /* Apply display: flex to the fieldset to make its children align horizontally */
+      .form-wrapper fieldset {
+        display: flex;
+        flex-grow: 1;
+        /* Allow fieldset to take up horizontal space */
+        flex-wrap: nowrap;
+        /* Prevent items inside the fieldset from wrapping */
+        align-items: stretch;
+        gap: 10px;
+        /* Use gap for spacing between the form elements */
+      }
+
+      /* Use Flexbox properties to control width instead of percentages */
+      .rm-select,
+      .floating-label-container,
+      .rm-submit {
+        height: 40px;
+        margin-bottom: 0;
+        margin-right: 0;
+        width: auto;
+        /* Allow flex to control width */
+      }
+
+      /* Styles the dropdown select element */
+      .rm-select {
+        padding: 12px 2px;
+        flex-shrink: 0;
+        /* Prevent from shrinking */
+        min-width: max-content;
+        /* Base size on content */
+      }
+
+      /* Floating label container */
+      .floating-label-container {
+        flex-grow: 1;
+        /* Allow to fill remaining space */
+      }
+
+      /* Input padding adjusted for the shorter container height */
+      .floating-label-container input.rm-input {
+        padding: 20px 12px 4px;
+      }
+
+      /* Styles the submit button */
+      .rm-submit {
+        margin-right: 0;
+        padding: 12px 2px;
+        position: relative;
+        flex-shrink: 0;
+        /* Prevent from shrinking */
+        min-width: max-content;
+        /* Base size on content (i.e., 'Search') */
+      }
+
+      /* Restore the triangular pseudo-element for the submit button on desktop */
+      .rm-submit:before {
+        content: '';
+        position: absolute;
+        border-width: 8px 8px 8px 0;
+        border-style: solid solid solid none;
+        border-color: transparent #f9a600 transparent;
+        top: 12px;
+        left: -6px;
+      }
+
+      /* Changes the color of the submit button's pseudo-element on hover */
+      .rm-submit:hover:before {
+        border-right-color: #FCC75D;
+      }
+
+      /* Changes the color of the submit button's pseudo-element on focus */
+      .rm-submit:focus:before {
+        border-right-color: #f9a600;
+      }
+
+      /* Floating label specific styles for desktop (restores the placeholder-like default state) */
+      .floating-label-container label {
+        left: 15px;
+        top: 15px;
+        font-size: 16px;
+        /* Reset to base font size for placeholder look */
+        font-weight: normal;
+        opacity: .6;
+        /* Placeholder opacity */
+      }
+
+      /* Float the label on focus and when text is entered (not placeholder shown) */
+      .floating-label-container input.rm-input:focus+label,
+      .floating-label-container input.rm-input:not(:placeholder-shown)+label {
+        left: 12px;
+        top: 6px;
+        font-size: 12px;
+        font-weight: bold;
+        opacity: 1;
+      }
+    }
+
+    /* Additional media query to set a fixed width for the submit button on larger screens */
+    @media (min-width: 641px) {
+      input.rm-submit {
+        width: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- The search form's action URL and hidden input values are dynamically updated by the primoScopeSwitch function based on the selected search scope. -->
+  <form action="https://csu-lb.primo.exlibrisgroup.com/discovery/search" autocomplete="off" class="form-wrapper rm"
+    enctype="application/x-www-form-urlencoded; charset=utf-8" id="searchForm" method="get" name="searchForm"
+    onsubmit="searchPrimo()" role="search" target="_top">
+    <fieldset style="border: none; padding: 0;">
+      <legend style="display: none;">OneSearch</legend>
+      <input id="primoQuery" name="query" type="hidden" />
+      <input id="primoTab" name="tab" type="hidden" value="Everything" />
+      <input id="primoScope" name="search_scope" type="hidden" value="NZ_IZ_CI" />
+      <input name="vid" type="hidden" value="01CALS_ULB:01CALS_ULB" />
+      <input name="lang" type="hidden" value="en_US" />
+      <input name="mode" type="hidden" value="simple" />
+      <label for="select-cat" style="display:none;">Select Search Type</label>
+      <select aria-label="Select Search Type" class="rm-select" id="select-cat" onchange="primoScopeSwitch(this)"
+        title="Select Search Type">
+        <option id="Everything" value="Everything">Search Everything</option>
+        <option id="CentralIndex" value="CentralIndex">Articles</option>
+        <option id="Newspapers" value="Newspapers">Newspapers</option>
+        <option id="LibraryCatalog" value="LibraryCatalog">Books &amp; Media (CSULB)</option>
+        <option id="DiscoveryNetwork" value="DiscoveryNetwork">Books &amp; Media (all CSU)</option>
+        <option id="CourseReserves" value="CourseReserves">Course Reserves (CSULB)</option>
+      </select>
+      <div class="floating-label-container">
+        <input aria-label="What are you looking for?" class="rm-input" id="query" placeholder=" "
+          title="Discover books, articles, videos, and more" type="text" />
+        <label for="query" id="query-label">Discover books, articles, videos, and more</label>
+      </div>
+      <input class="rm-submit" id="go" name="go" role="button" type="submit" value="Search" />
+    </fieldset>
+  </form>
+</body>
+
+</html>
